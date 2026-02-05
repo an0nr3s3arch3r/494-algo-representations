@@ -1,0 +1,22 @@
+INFO:birdwatch.runner:scorer python version: 3.10.19 (main, Oct  9 2025, 15:25:03) [Clang 16.0.0 (clang-1600.0.26.6)]
+INFO:birdwatch.runner:scorer pandas version: 2.2.2
+INFO:birdwatch.runner:beginning scorer execution
+Patching pandas
+Traceback (most recent call last):
+  File "/Users/canbo/INFO494/494-algo-representations/communitynotes/scoring/src/main.py", line 31, in <module>
+    main()
+  File "/Users/canbo/INFO494/494-algo-representations/communitynotes/scoring/src/scoring/runner.py", line 278, in main
+    return _run_scorer(args=args, dataLoader=dataLoader, extraScoringArgs=extraScoringArgs)
+  File "/Users/canbo/INFO494/494-algo-representations/communitynotes/scoring/src/scoring/pandas_utils.py", line 722, in _inner
+    retVal = main(*args, **kwargs)
+  File "/Users/canbo/INFO494/494-algo-representations/communitynotes/scoring/src/scoring/runner.py", line 201, in _run_scorer
+    notes, ratings, statusHistory, userEnrollment = dataLoader.get_data()
+  File "/Users/canbo/INFO494/494-algo-representations/communitynotes/scoring/src/scoring/process_data.py", line 699, in get_data
+    notes, ratings, noteStatusHistory, userEnrollment = read_from_tsv(
+  File "/Users/canbo/INFO494/494-algo-representations/communitynotes/scoring/src/scoring/process_data.py", line 193, in read_from_tsv
+    notes = tsv_reader(
+  File "/Users/canbo/INFO494/494-algo-representations/communitynotes/scoring/src/scoring/process_data.py", line 167, in tsv_reader
+    return tsv_reader_single(
+  File "/Users/canbo/INFO494/494-algo-representations/communitynotes/scoring/src/scoring/process_data.py", line 144, in tsv_reader_single
+    with open(path, "r", encoding="utf-8") as handle:
+FileNotFoundError: [Errno 2] No such file or directory: 'data/notes-00000.tsv'

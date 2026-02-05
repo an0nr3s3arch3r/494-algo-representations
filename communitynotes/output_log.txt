@@ -1,0 +1,22 @@
+Traceback (most recent call last):
+  File "/Users/canbo/INFO494/494-algo-representations/communitynotes/scoring/src/main.py", line 26, in <module>
+    from scoring.runner import main
+  File "/Users/canbo/INFO494/494-algo-representations/communitynotes/scoring/src/scoring/runner.py", line 10, in <module>
+    from .run_scoring import run_scoring
+  File "/Users/canbo/INFO494/494-algo-representations/communitynotes/scoring/src/scoring/run_scoring.py", line 22, in <module>
+    from .gaussian_scorer import GaussianScorer
+  File "/Users/canbo/INFO494/494-algo-representations/communitynotes/scoring/src/scoring/gaussian_scorer.py", line 6, in <module>
+    from .mf_core_scorer import MFCoreScorer
+  File "/Users/canbo/INFO494/494-algo-representations/communitynotes/scoring/src/scoring/mf_core_scorer.py", line 4, in <module>
+    from .mf_base_scorer import MFBaseScorer
+  File "/Users/canbo/INFO494/494-algo-representations/communitynotes/scoring/src/scoring/mf_base_scorer.py", line 5, in <module>
+    from . import (
+    ...<6 lines>...
+    )
+  File "/Users/canbo/INFO494/494-algo-representations/communitynotes/scoring/src/scoring/tag_consensus.py", line 5, in <module>
+    from .matrix_factorization.matrix_factorization import MatrixFactorization
+  File "/Users/canbo/INFO494/494-algo-representations/communitynotes/scoring/src/scoring/matrix_factorization/matrix_factorization.py", line 7, in <module>
+    from .model import BiasedMatrixFactorization, ModelData
+  File "/Users/canbo/INFO494/494-algo-representations/communitynotes/scoring/src/scoring/matrix_factorization/model.py", line 5, in <module>
+    import torch
+ModuleNotFoundError: No module named 'torch'

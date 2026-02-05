@@ -1,0 +1,228 @@
+INFO:birdwatch.runner:scorer python version: 3.11.14 (main, Oct  9 2025, 16:16:55) [Clang 16.0.0 (clang-1600.0.26.6)]
+INFO:birdwatch.runner:scorer pandas version: 2.3.3
+INFO:birdwatch.runner:beginning scorer execution
+INFO:birdwatch.process_data:Timestamp of latest rating in data: 2026-01-26 02:52:16.873000
+INFO:birdwatch.process_data:Timestamp of latest note in data: 2026-01-19 01:00:58.391000
+INFO:birdwatch.process_data:Total raters: 623657
+INFO:birdwatch.process_data:Identifying high volume raters
+INFO:birdwatch.process_data:Total ratings: 4007501
+INFO:birdwatch.process_data:High volume threshold for 7 days: 4.740000000000009
+INFO:birdwatch.process_data:High volume raters for 7 days: 1
+INFO:birdwatch.process_data:High volume threshold for 28 days: 19.0
+INFO:birdwatch.process_data:High volume raters for 28 days: 50
+INFO:birdwatch.process_data:Total high volume raters: 51
+INFO:birdwatch.process_data:Total ratings: 4007501
+INFO:birdwatch.process_data:Total ratings from high volume raters: 20858
+
+CONCAT WARNING(S) AT: /Users/canbo/INFO494/494-algo-representations/communitynotes/scoring/src/scoring/note_status_history.py, in merge_note_info, at line 31: newNoteStatusHistory = oldNoteStatusHistory.merge(
+  PandasTypeError: Type expectation mismatch on noteId: found=float64 expected=int64
+  PandasTypeError: Type expectation mismatch on noteId: found=float64 expected=int64
+
+
+MERGE WARNING(S) AT: /Users/canbo/INFO494/494-algo-representations/communitynotes/scoring/src/scoring/note_status_history.py, in merge_note_info, at line 31: newNoteStatusHistory = oldNoteStatusHistory.merge(
+  PandasTypeError: Output mismatch on createdAtMillis: result=float64 expected=int64 (allowed)
+  PandasTypeError: Output mismatch on createdAtMillis_notes: result=float64 expected=int64 (allowed)
+
+INFO:birdwatch.note_status_history:total notes added to noteStatusHistory: 145122
+
+MERGE WARNING(S) AT: /Users/canbo/INFO494/494-algo-representations/communitynotes/scoring/src/scoring/note_status_history.py, in merge_note_info, at line 57: newNoteStatusHistory[[c.noteIdKey, c.createdAtMillisKey]].merge(
+  PandasTypeError: Input mismatch on createdAtMillis: left=float64 vs right=int64 (allowed)
+  PandasTypeError: Merge key mismatch on createdAtMillis: left=float64 vs right=int64 (allowed)
+
+
+MERGE WARNING(S) AT: /Users/canbo/INFO494/494-algo-representations/communitynotes/scoring/src/scoring/process_data.py, in _filter_misleading_notes, at line 298: ratings = ratings.merge(
+  PandasTypeError: Input mismatch on createdAtMillis: left=int64 vs right=float64 (allowed)
+
+INFO:birdwatch.process_data:Preprocess Data: Filter misleading notes, starting with 4007501 ratings on 44476 notes
+INFO:birdwatch.process_data:  Keeping 3283088 ratings on 34889 misleading notes
+INFO:birdwatch.process_data:  Keeping 0 ratings on 0 deleted notes that were previously scored (in note status history)
+INFO:birdwatch.process_data:  Removing 6416 ratings on 419 older notes that aren't deleted, but are not-misleading.
+INFO:birdwatch.process_data:  Removing 0 ratings on 0 notes that were deleted and not in note status history (e.g. old).
+INFO:birdwatch.process_data:Num Ratings: 4001085, Num Unique Notes Rated: 44057, Num Unique Raters: 623416
+INFO:birdwatch.process_data:Called filter_input_data_for_testing.
+        Notes: 2347611, Ratings: 4001085. Max note createdAt: 2026-01-19 01:00:58.391000; Max rating createAt: 2026-01-26 02:52:16.873000
+INFO:birdwatch.process_data:After filtering notes and ratings after particular timestamp (=None). 
+        Notes: 2347611, Ratings: 4001085. Max note createdAt: 2026-01-19 01:00:58.391000; Max rating createAt: 2026-01-26 02:52:16.873000
+INFO:birdwatch.process_data:After filtering ratings after first status (plus None hours) for notes created in last 14 days. 
+        Notes: 2347611, Ratings: 4001085. Max note createdAt: 2026-01-19 01:00:58.391000; Max rating createAt: 2026-01-26 02:52:16.873000
+INFO:birdwatch.process_data:After filtering prescoring notes and ratings to simulate a delay of None hours: 
+        Notes: 2347611, Ratings: 4001085. Max note createdAt: 2026-01-19 01:00:58.391000; Max rating createAt: 2026-01-26 02:52:16.873000
+INFO:birdwatch.constants:Compute pair counts dict elapsed time: 578.12 secs (9.64 mins)
+INFO:birdwatch.constants:Compute PMI and minSim elapsed time: 147.29 secs (2.45 mins)
+INFO:birdwatch.constants:Delete unneeded pairs from pairCountsDict elapsed time: 68.42 secs (1.14 mins)
+INFO:birdwatch.constants:Aggregate into cliques by post selection similarity elapsed time: 2.24 secs (0.04 mins)
+INFO:birdwatch.constants:Compute Post Selection Similarity elapsed time: 825.40 secs (13.76 mins)
+--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/local/Cellar/python@3.11/3.11.14_2/Frameworks/Python.framework/Versions/3.11/lib/python3.11/logging/__init__.py", line 1110, in emit
+    msg = self.format(record)
+          ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/Cellar/python@3.11/3.11.14_2/Frameworks/Python.framework/Versions/3.11/lib/python3.11/logging/__init__.py", line 953, in format
+    return fmt.format(record)
+           ^^^^^^^^^^^^^^^^^^
+  File "/usr/local/Cellar/python@3.11/3.11.14_2/Frameworks/Python.framework/Versions/3.11/lib/python3.11/logging/__init__.py", line 687, in format
+    record.message = record.getMessage()
+                     ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/Cellar/python@3.11/3.11.14_2/Frameworks/Python.framework/Versions/3.11/lib/python3.11/logging/__init__.py", line 377, in getMessage
+    msg = msg % self.args
+          ~~~~^~~~~~~~~~~
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/Users/canbo/INFO494/494-algo-representations/communitynotes/scoring/src/main.py", line 31, in <module>
+    main()
+  File "/Users/canbo/INFO494/494-algo-representations/communitynotes/scoring/src/scoring/runner.py", line 278, in main
+    return _run_scorer(args=args, dataLoader=dataLoader, extraScoringArgs=extraScoringArgs)
+  File "/Users/canbo/INFO494/494-algo-representations/communitynotes/scoring/src/scoring/pandas_utils.py", line 722, in _inner
+    retVal = main(*args, **kwargs)
+  File "/Users/canbo/INFO494/494-algo-representations/communitynotes/scoring/src/scoring/runner.py", line 231, in _run_scorer
+    scoredNotes, helpfulnessScores, newStatus, auxNoteInfo = run_scoring(
+  File "/Users/canbo/INFO494/494-algo-representations/communitynotes/scoring/src/scoring/run_scoring.py", line 2080, in run_scoring
+    postSelectionSimilarityValues = run_rater_clustering(notes=notes, ratings=ratings)
+  File "/Users/canbo/INFO494/494-algo-representations/communitynotes/scoring/src/scoring/run_scoring.py", line 1188, in run_rater_clustering
+    quasiCliques = qcd.get_quasi_cliques(notes, ratings)
+  File "/Users/canbo/INFO494/494-algo-representations/communitynotes/scoring/src/scoring/quasi_clique_detection.py", line 256, in get_quasi_cliques
+    raterPairCounts, raterPairRatings = self._get_pair_counts(ratings, notes, self._recencyCutoff)
+  File "/Users/canbo/INFO494/494-algo-representations/communitynotes/scoring/src/scoring/quasi_clique_detection.py", line 60, in _get_pair_counts
+    logger.info("initial rating length:", len(ratings))
+Message: 'initial rating length:'
+Arguments: (4001085,)
+--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/local/Cellar/python@3.11/3.11.14_2/Frameworks/Python.framework/Versions/3.11/lib/python3.11/logging/__init__.py", line 1110, in emit
+    msg = self.format(record)
+          ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/Cellar/python@3.11/3.11.14_2/Frameworks/Python.framework/Versions/3.11/lib/python3.11/logging/__init__.py", line 953, in format
+    return fmt.format(record)
+           ^^^^^^^^^^^^^^^^^^
+  File "/usr/local/Cellar/python@3.11/3.11.14_2/Frameworks/Python.framework/Versions/3.11/lib/python3.11/logging/__init__.py", line 687, in format
+    record.message = record.getMessage()
+                     ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/Cellar/python@3.11/3.11.14_2/Frameworks/Python.framework/Versions/3.11/lib/python3.11/logging/__init__.py", line 377, in getMessage
+    msg = msg % self.args
+          ~~~~^~~~~~~~~~~
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/Users/canbo/INFO494/494-algo-representations/communitynotes/scoring/src/main.py", line 31, in <module>
+    main()
+  File "/Users/canbo/INFO494/494-algo-representations/communitynotes/scoring/src/scoring/runner.py", line 278, in main
+    return _run_scorer(args=args, dataLoader=dataLoader, extraScoringArgs=extraScoringArgs)
+  File "/Users/canbo/INFO494/494-algo-representations/communitynotes/scoring/src/scoring/pandas_utils.py", line 722, in _inner
+    retVal = main(*args, **kwargs)
+  File "/Users/canbo/INFO494/494-algo-representations/communitynotes/scoring/src/scoring/runner.py", line 231, in _run_scorer
+    scoredNotes, helpfulnessScores, newStatus, auxNoteInfo = run_scoring(
+  File "/Users/canbo/INFO494/494-algo-representations/communitynotes/scoring/src/scoring/run_scoring.py", line 2080, in run_scoring
+    postSelectionSimilarityValues = run_rater_clustering(notes=notes, ratings=ratings)
+  File "/Users/canbo/INFO494/494-algo-representations/communitynotes/scoring/src/scoring/run_scoring.py", line 1188, in run_rater_clustering
+    quasiCliques = qcd.get_quasi_cliques(notes, ratings)
+  File "/Users/canbo/INFO494/494-algo-representations/communitynotes/scoring/src/scoring/quasi_clique_detection.py", line 256, in get_quasi_cliques
+    raterPairCounts, raterPairRatings = self._get_pair_counts(ratings, notes, self._recencyCutoff)
+  File "/Users/canbo/INFO494/494-algo-representations/communitynotes/scoring/src/scoring/quasi_clique_detection.py", line 67, in _get_pair_counts
+    logger.info("ratings after merges:", len(ratings))
+Message: 'ratings after merges:'
+Arguments: (4001085,)
+--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/local/Cellar/python@3.11/3.11.14_2/Frameworks/Python.framework/Versions/3.11/lib/python3.11/logging/__init__.py", line 1110, in emit
+    msg = self.format(record)
+          ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/Cellar/python@3.11/3.11.14_2/Frameworks/Python.framework/Versions/3.11/lib/python3.11/logging/__init__.py", line 953, in format
+    return fmt.format(record)
+           ^^^^^^^^^^^^^^^^^^
+  File "/usr/local/Cellar/python@3.11/3.11.14_2/Frameworks/Python.framework/Versions/3.11/lib/python3.11/logging/__init__.py", line 687, in format
+    record.message = record.getMessage()
+                     ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/Cellar/python@3.11/3.11.14_2/Frameworks/Python.framework/Versions/3.11/lib/python3.11/logging/__init__.py", line 377, in getMessage
+    msg = msg % self.args
+          ~~~~^~~~~~~~~~~
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/Users/canbo/INFO494/494-algo-representations/communitynotes/scoring/src/main.py", line 31, in <module>
+    main()
+  File "/Users/canbo/INFO494/494-algo-representations/communitynotes/scoring/src/scoring/runner.py", line 278, in main
+    return _run_scorer(args=args, dataLoader=dataLoader, extraScoringArgs=extraScoringArgs)
+  File "/Users/canbo/INFO494/494-algo-representations/communitynotes/scoring/src/scoring/pandas_utils.py", line 722, in _inner
+    retVal = main(*args, **kwargs)
+  File "/Users/canbo/INFO494/494-algo-representations/communitynotes/scoring/src/scoring/runner.py", line 231, in _run_scorer
+    scoredNotes, helpfulnessScores, newStatus, auxNoteInfo = run_scoring(
+  File "/Users/canbo/INFO494/494-algo-representations/communitynotes/scoring/src/scoring/run_scoring.py", line 2080, in run_scoring
+    postSelectionSimilarityValues = run_rater_clustering(notes=notes, ratings=ratings)
+  File "/Users/canbo/INFO494/494-algo-representations/communitynotes/scoring/src/scoring/run_scoring.py", line 1188, in run_rater_clustering
+    quasiCliques = qcd.get_quasi_cliques(notes, ratings)
+  File "/Users/canbo/INFO494/494-algo-representations/communitynotes/scoring/src/scoring/quasi_clique_detection.py", line 256, in get_quasi_cliques
+    raterPairCounts, raterPairRatings = self._get_pair_counts(ratings, notes, self._recencyCutoff)
+  File "/Users/canbo/INFO494/494-algo-representations/communitynotes/scoring/src/scoring/quasi_clique_detection.py", line 69, in _get_pair_counts
+    logger.info("recent ratings:", len(ratings))
+Message: 'recent ratings:'
+Arguments: (358354,)
+--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/local/Cellar/python@3.11/3.11.14_2/Frameworks/Python.framework/Versions/3.11/lib/python3.11/logging/__init__.py", line 1110, in emit
+    msg = self.format(record)
+          ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/Cellar/python@3.11/3.11.14_2/Frameworks/Python.framework/Versions/3.11/lib/python3.11/logging/__init__.py", line 953, in format
+    return fmt.format(record)
+           ^^^^^^^^^^^^^^^^^^
+  File "/usr/local/Cellar/python@3.11/3.11.14_2/Frameworks/Python.framework/Versions/3.11/lib/python3.11/logging/__init__.py", line 687, in format
+    record.message = record.getMessage()
+                     ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/Cellar/python@3.11/3.11.14_2/Frameworks/Python.framework/Versions/3.11/lib/python3.11/logging/__init__.py", line 377, in getMessage
+    msg = msg % self.args
+          ~~~~^~~~~~~~~~~
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/Users/canbo/INFO494/494-algo-representations/communitynotes/scoring/src/main.py", line 31, in <module>
+    main()
+  File "/Users/canbo/INFO494/494-algo-representations/communitynotes/scoring/src/scoring/runner.py", line 278, in main
+    return _run_scorer(args=args, dataLoader=dataLoader, extraScoringArgs=extraScoringArgs)
+  File "/Users/canbo/INFO494/494-algo-representations/communitynotes/scoring/src/scoring/pandas_utils.py", line 722, in _inner
+    retVal = main(*args, **kwargs)
+  File "/Users/canbo/INFO494/494-algo-representations/communitynotes/scoring/src/scoring/runner.py", line 231, in _run_scorer
+    scoredNotes, helpfulnessScores, newStatus, auxNoteInfo = run_scoring(
+  File "/Users/canbo/INFO494/494-algo-representations/communitynotes/scoring/src/scoring/run_scoring.py", line 2080, in run_scoring
+    postSelectionSimilarityValues = run_rater_clustering(notes=notes, ratings=ratings)
+  File "/Users/canbo/INFO494/494-algo-representations/communitynotes/scoring/src/scoring/run_scoring.py", line 1188, in run_rater_clustering
+    quasiCliques = qcd.get_quasi_cliques(notes, ratings)
+  File "/Users/canbo/INFO494/494-algo-representations/communitynotes/scoring/src/scoring/quasi_clique_detection.py", line 256, in get_quasi_cliques
+    raterPairCounts, raterPairRatings = self._get_pair_counts(ratings, notes, self._recencyCutoff)
+  File "/Users/canbo/INFO494/494-algo-representations/communitynotes/scoring/src/scoring/quasi_clique_detection.py", line 71, in _get_pair_counts
+    logger.info("ratings on non-deleted tweets:", len(ratings))
+Message: 'ratings on non-deleted tweets:'
+Arguments: (358354,)
+--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/local/Cellar/python@3.11/3.11.14_2/Frameworks/Python.framework/Versions/3.11/lib/python3.11/logging/__init__.py", line 1110, in emit
+    msg = self.format(record)
+          ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/Cellar/python@3.11/3.11.14_2/Frameworks/Python.framework/Versions/3.11/lib/python3.11/logging/__init__.py", line 953, in format
+    return fmt.format(record)
+           ^^^^^^^^^^^^^^^^^^
+  File "/usr/local/Cellar/python@3.11/3.11.14_2/Frameworks/Python.framework/Versions/3.11/lib/python3.11/logging/__init__.py", line 687, in format
+    record.message = record.getMessage()
+                     ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/Cellar/python@3.11/3.11.14_2/Frameworks/Python.framework/Versions/3.11/lib/python3.11/logging/__init__.py", line 377, in getMessage
+    msg = msg % self.args
+          ~~~~^~~~~~~~~~~
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/Users/canbo/INFO494/494-algo-representations/communitynotes/scoring/src/main.py", line 31, in <module>
+    main()
+  File "/Users/canbo/INFO494/494-algo-representations/communitynotes/scoring/src/scoring/runner.py", line 278, in main
+    return _run_scorer(args=args, dataLoader=dataLoader, extraScoringArgs=extraScoringArgs)
+  File "/Users/canbo/INFO494/494-algo-representations/communitynotes/scoring/src/scoring/pandas_utils.py", line 722, in _inner
+    retVal = main(*args, **kwargs)
+  File "/Users/canbo/INFO494/494-algo-representations/communitynotes/scoring/src/scoring/runner.py", line 231, in _run_scorer
+    scoredNotes, helpfulnessScores, newStatus, auxNoteInfo = run_scoring(
+  File "/Users/canbo/INFO494/494-algo-representations/communitynotes/scoring/src/scoring/run_scoring.py", line 2080, in run_scoring
+    postSelectionSimilarityValues = run_rater_clustering(notes=notes, ratings=ratings)
+  File "/Users/canbo/INFO494/494-algo-representations/communitynotes/scoring/src/scoring/run_scoring.py", line 1188, in run_rater_clustering
+    quasiCliques = qcd.get_quasi_cliques(notes, ratings)
+  File "/Users/canbo/INFO494/494-algo-representations/communitynotes/scoring/src/scoring/quasi_clique_detection.py", line 256, in get_quasi_cliques
+    raterPairCounts, raterPairRatings = self._get_pair_counts(ratings, notes, self._recencyCutoff)
+  File "/Users/canbo/INFO494/494-algo-representations/communitynotes/scoring/src/scoring/quasi_clique_detection.py", line 73, in _get_pair_counts
+    logger.info("ratings on misleading posts:", len(ratings))
+Message: 'ratings on misleading posts:'
+Arguments: (306449,)
+INFO:birdwatch.quasi_clique_detection:Preparing pairs for 2752 tweets
+INFO:birdwatch.quasi_clique_detection:0
+INFO:birdwatch.quasi_clique_detection:1000
+INFO:birdwatch.quasi_clique_detection:2000
