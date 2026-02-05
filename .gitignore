@@ -1,4 +1,15 @@
+# system
 .DS_Store
-notes-*
-.venv/
-__marimo__/
+
+# data files
+*.csv
+*.tsv
+
+# data folder
+data/
+
+# env
+.env
+
+# outputs
+outputs/
