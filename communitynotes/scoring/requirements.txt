@@ -1,7 +1,0 @@
-numpy
-pandas
-torch
-scipy==1.11.4
-scikit-learn
-pyarrow
-wandb==0.18.7
