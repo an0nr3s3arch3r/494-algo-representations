@@ -2153,4 +2153,4 @@ def run_scoring(
   #)
 
   # return scoredNotes, helpfulnessScores, newNoteStatusHistory, auxiliaryNoteInfo
-  return prescoringNoteModelOutput, pd.DataFrame(), noteStatusHistory, pd.DataFrame()
+  return prescoringNoteModelOutput, prescoringRaterModelOutput, noteStatusHistory, pd.DataFrame()
