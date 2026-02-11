@@ -43,7 +43,6 @@ communitynotes/scoring/src/cn_output/
 *.log
 .DS_Store
 __pycache__/
-communitynotes/scoring/src/cn_log.txt
 
 # Ignore Environment
 .venv/
