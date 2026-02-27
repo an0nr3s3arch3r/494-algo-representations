@@ -1184,14 +1184,15 @@ def run_rater_clustering(notes: pd.DataFrame, ratings: pd.DataFrame) -> pd.DataF
     postSelectionSimilarityValues = pss.get_post_selection_similarity_values()
     del pss
     gc.collect()
-  with c.time_block("Compute Quasi-Cliques"):
-    qcd = QuasiCliqueDetection()
-    quasiCliques = qcd.get_quasi_cliques(notes, ratings)
-    del qcd
-    gc.collect()
+  #with c.time_block("Compute Quasi-Cliques"):
+  #  qcd = QuasiCliqueDetection()
+  #  quasiCliques = qcd.get_quasi_cliques(notes, ratings)
+  #  del qcd
+  #  gc.collect()
   # Return combined dataframe
-  return postSelectionSimilarityValues.merge(quasiCliques, how="outer")
-
+  #return postSelectionSimilarityValues.merge(quasiCliques, how="outer")
+  postSelectionSimilarityValues[c.quasiCliqueValueKey] = 0.0
+  return postSelectionSimilarityValues
 
 def run_prescoring(
   args,
@@ -1346,7 +1347,7 @@ def run_prescoring(
 
   with c.time_block("Fitting pflip model"):
     pflipPlusModel = PFlipPlusModel(seed=seed)
-    pflipPlusModel.fit(notes, ratings, noteStatusHistory, prescoringRaterModelOutput)
+    # pflipPlusModel.fit(notes, ratings, noteStatusHistory, prescoringRaterModelOutput)
 
   # Prescoring itself is now done. We will not run final_note_scoring to check note status flips.
   if checkFlips:
