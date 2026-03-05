@@ -1,15 +1,54 @@
-# system
+# --- Python Environment ---
+.venv-1/
+.venv/
+env/
+venv/
+__pycache__/
+*.pyc
+
+# --- Data Files (Too large for GitHub) ---
+data/
+*.tsv
+*.parquet
+*.csv
+
+# --- Mac OS junk files ---
 .DS_Store
 
-# data files
-*.csv
+# --- VS Code settings ---
+.vscode/
+
+# --- Logs ---
+all_logs.txt
+*.log
+
+communitynotes/scoring/src/ratings
+
+# Ignore Data Folders
+communitynotes/scoring/src/data/
+communitynotes/scoring/src/data-1/
+communitynotes/scoring/src/data-new/
+communitynotes/scoring/src/ratings/
+communitynotes/scoring/src/cn_output/
+
+# Ignore Large Data Files
 *.tsv
+*.parquet
+*.csv
+*.zip
+*.gz
 
-# data folder
-data/
+# Ignore Logs and System Files
+*.txt
+*.log
+.DS_Store
+__pycache__/
 
-# env
-.env
-
-# outputs
-outputs/
+# Ignore Environment
+.venv/
+.venv-1/
+.venv-2/
+.venv-3/
+.venv2/
+env/
+venv/
